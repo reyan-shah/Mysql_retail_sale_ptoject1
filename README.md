@@ -4,7 +4,7 @@ Project Overview
 
 Project Title: Retail Sales Analysis
 
-Database: p1_retail_db
+Database: sql_project1
 
 This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. This project is ideal for those who are starting their journey in data analysis and want to build a solid foundation in SQL.
 
@@ -18,11 +18,10 @@ Business Analysis: Use SQL to answer specific business questions and derive insi
 Project Structure
 
 1. Database Setup
-Database Creation: The project starts by creating a database named p1_retail_db.
-Table Creation: A table named retail_sales is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
-CREATE DATABASE p1_retail_db;
-
-CREATE TABLE retail_sales
+Database Creation: The project starts by creating a database named sql_project1.
+Table Creation: A table named product is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
+CREATE DATABASE sql_project1;
+CREATE TABLE product
 (
     transactions_id INT PRIMARY KEY,
     sale_date DATE,	
@@ -44,17 +43,17 @@ Customer Count: Find out how many unique customers are in the dataset.
 Category Count: Identify all unique product categories in the dataset.
 Null Value Check: Check for any null values in the dataset and delete records with missing data.
 SELECT COUNT(*) FROM retail_sales;
-SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
-SELECT DISTINCT category FROM retail_sales;
+SELECT COUNT(DISTINCT customer_id) FROM product;
+SELECT DISTINCT category FROM product;
 
-SELECT * FROM retail_sales
+SELECT * FROM  product
 WHERE 
     sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
     gender IS NULL OR age IS NULL OR category IS NULL OR 
     quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
     
 
-DELETE FROM retail_sales
+DELETE FROM  product
 WHERE 
     sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
     gender IS NULL OR age IS NULL OR category IS NULL OR 
@@ -65,6 +64,8 @@ WHERE
 The following SQL queries were developed to answer specific business questions:
 
 1-Write a SQL query to retrieve all columns for sales made on '2022-11-05:
+select * from product
+where sale_date ='2022-11-05';
 
 2-Write a SQL query to retrieve all transactions where the category is 'Clothing' and the 
 -- quantity sold is more than 4 in the month of Nov-2022:
